@@ -1,7 +1,6 @@
 """
 XOR Problemi - TensorFlow/Keras ile Çok Katmanlı Sinir Ağı
 ==========================================================
-Gizli katmanlı bir ağ ile XOR'u Keras API kullanarak eğitiyorum.
 """
 
 # Uyarıları azalt (TensorFlow import'tan önce)
@@ -15,7 +14,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Input
 
 # XOR veri seti: 4 girdi ve beklenen çıktılar
-# (0,0)->0, (0,1)->1, (1,0)->1, (1,1)->0
+# 0,0->0, 0,1->1, 1,0->1, 1,1->0
 X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]], dtype=np.float32)
 y = np.array([[0], [1], [1], [0]], dtype=np.float32)
 
@@ -73,7 +72,6 @@ plt.show()
 
 print("\nEğitim grafiği 'xor2_egitim.png' olarak kaydedildi.")
 
-# Karar sınırı görselleştirmesi (xor.py'deki gibi)
 xx, yy = np.meshgrid(np.linspace(-0.5, 1.5, 100), np.linspace(-0.5, 1.5, 100))
 Z = np.asarray(model.predict(np.c_[xx.ravel(), yy.ravel()], verbose=0))
 Z = (Z >= 0.5).astype(int).reshape(xx.shape)
@@ -90,4 +88,3 @@ plt.tight_layout()
 plt.savefig("xor2_karar_siniri.png", dpi=120)
 plt.show()
 
-print("Karar sınırı görseli 'xor2_karar_siniri.png' olarak kaydedildi.")
